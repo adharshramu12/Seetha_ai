@@ -1,0 +1,15 @@
+.env
+.venv
+__pycache__
+*.pem
+*.log
+*.pdf
+*.spec
+.DS_Store
+build/
+dist/
+user_profile.json
+git_backup_to_ignore
+scenario_result.txt
+.pytest_cache
+chat_screenshot.png
