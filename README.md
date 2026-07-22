@@ -1,62 +1,73 @@
-# Seetha AI 🎙️ — Open Source Desktop AI Assistant for Windows
+<div align="center">
 
-> Talk to your computer. Seetha listens, answers with a voice and an animated
-> avatar, and actually *does things* — opens apps, plays songs, sends WhatsApp
-> messages, controls volume/brightness, and runs multi-source deep research.
+# 🎙️ Seetha AI
 
-**Created by [Adharsh Kumar Bachu](https://github.com/adharshramu12)** · MIT License
+### An open-source, agentic desktop AI assistant for Windows
 
-**Bring your own (free) API key. No account. No server. No telemetry.**
-Your keys and your data never leave your machine.
+*Voice in. Actions out. She listens, thinks, plans, acts on your computer — and verifies her own work.*
 
-```
-🎤 Ears (voice) ──▶ 🧠 Brain (rules + AI) ──▶ ⚡ Dispatcher ──▶ 🖱 Actions (automation)
-                          │                                        │
-                          ▼                                        ▼
-                     🔊 Mouth (TTS)                          👩 Avatar (UI)
-```
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-0078D6?logo=windows&logoColor=white)](#-quick-start)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/Tests-28%20passing-22c55e)](tests/test_suite.py)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-8b5cf6.svg)](#-contributing)
+[![Made with](https://img.shields.io/badge/AI-NVIDIA%20NIM%20%7C%20Groq%20%7C%20Gemini-76B900?logo=nvidia&logoColor=white)](#-api-keys)
 
----
+**[Quick Start](#-quick-start)** · **[Features](#-features)** · **[Architecture](#-architecture)** · **[Roadmap](#-roadmap)** · **[Contributing](#-contributing)** · **[Author](#-about-the-author)**
 
-## ✨ What Seetha can do
+<br>
 
-| Category | Examples of what you can say |
-|---|---|
-| **Talk** | "Good morning", "Who are you?", anything — real AI conversation |
-| **Open / close apps** | "Open Chrome", "Close Notepad", "Close everything" |
-| **Multi-step tasks** 🤖 | "Open Notepad and write a poem about rain" — the AI plans the steps, executes them, and **verifies each one on screen** with a vision model |
-| **Music & media** | "Play melody songs", "Pause", "Next song", "Mute" |
-| **System control** | "Increase the volume", "Dim the screen", "Set brightness to 40", "Take a screenshot" — any phrasing, executed directly |
-| **Memory** 🧠 | "Remember my exam is on Friday", "What do you remember?", "Forget that" — survives restarts, injected into every conversation |
-| **Reminders** ⏰ | "Remind me at 6 pm to call amma" — chime + Windows notification + voice |
-| **WhatsApp** | "Send a WhatsApp message to Ramu saying I'm on my way" |
-| **YouTube** | "Play that new Seetha Ramam song" — finds and plays it |
-| **Deep Research** | "Research about ISRO's next mission" — multi-source verified report |
-| **Meetings** | "Create an instant meeting" — Google Meet link saved to Notepad + clipboard |
-| **Files** | "Search for my resume" |
+**No account. No server. No telemetry. No cost.**
+Your own free API key, your own machine — your data never leaves either.
 
-**Lives in the background like a real assistant:** closing the window
-minimizes to the system tray, and **Ctrl+Space** summons a Spotlight-style
-command bar from anywhere in Windows.
-
-Everything is **free and unlocked** — there are no tiers, no credits, no login.
+</div>
 
 ---
 
-## 🚀 Quick Start (2 minutes)
+## 💡 Why Seetha?
 
-### 1. Install
+Most "AI assistants" are chatboxes. Seetha is an **agent with hands**:
+
+- 🗣️ **Say it any way you want** — *"make it louder"*, *"dim the screen"*, *"open the chrome browser please"* — a local rules engine executes instantly, zero API calls, zero latency.
+- 🤖 **Multi-step autonomy** — *"open Notepad and write a poem about rain"* → the LLM composes a plan, the dispatcher executes it step by step, and a **vision model checks the screen after each step** to verify it actually worked — retrying on failure. The observe → act → verify loop, on your desktop.
+- 🧠 **She remembers you** — facts persist across restarts and are injected into every conversation, ChatGPT-memory style. Reminders fire with chime + Windows notification + voice.
+- 🫥 **Lives in the background** — closes to the system tray; **Ctrl + Space** summons a Spotlight-style command bar from inside any app.
+- 🪫 **Degrades gracefully** — no API key? App control, media, volume, brightness, and reminders still work fully offline.
+
+## ✨ Features
+
+| | Capability | Say something like |
+|---|---|---|
+| 🗨️ | **Conversational AI** | "Good morning", anything — LLM-powered chat with personality |
+| 🚀 | **App control** | "Open Chrome", "Close everything", "Open notepad and calculator" |
+| 🤖 | **Agentic multi-step tasks** | "Open Notepad and write a poem" — planned, executed, screen-verified |
+| 🔊 | **Direct system control** | "Increase the volume", "Set brightness to 40", "Take a screenshot" |
+| 🧠 | **Persistent memory** | "Remember my exam is on Friday" / "What do you remember?" |
+| ⏰ | **Reminders** | "Remind me at 6 pm to call amma" — sound + notification + voice |
+| 💬 | **WhatsApp automation** | "Send a WhatsApp message to Ramu saying I'm on my way" |
+| ▶️ | **YouTube smart-play** | "Play that new Seetha Ramam song" |
+| 🔬 | **Deep Research engine** | "Research ISRO's next mission" — multi-source, fact-verified, confidence-scored reports |
+| 📅 | **Instant meetings** | "Create a meeting" — Google Meet link detected, saved to Notepad + clipboard |
+| 👩 | **Animated avatar** | Blinks, lip-syncs while speaking — flicker-free rendering |
+| ⌨️ | **Command bar** | **Ctrl + Space** anywhere in Windows |
+
+## ⚡ Quick Start
+
+> Requires **Windows 10/11** and **[Python 3.10+](https://python.org)** (tick *"Add to PATH"* during install).
 
 ```bash
 git clone https://github.com/adharshramu12/Seetha_ai.git
 cd Seetha_ai
 ```
 
-Then just **double-click `StartSeetha.bat`** — it creates a virtual
-environment and installs everything on first run.
+**Double-click `StartSeetha.bat`** — it creates a virtual environment, installs everything, and launches Seetha. On first run she opens Settings and asks for one key:
+
+1. Visit **[build.nvidia.com](https://build.nvidia.com)** → sign in (free) → any chat model → **Get API Key** → copy the `nvapi-...` key.
+2. Paste it into Settings → **Save & Test AI**.
+3. Click **Activate Seetha** and start talking. 🎉
 
 <details>
-<summary>Manual install (if you prefer)</summary>
+<summary><b>Manual install</b></summary>
 
 ```bash
 python -m venv .venv
@@ -64,131 +75,152 @@ python -m venv .venv
 pip install -r requirements.txt
 python -m seetha.main
 ```
-
-Requires **Windows 10/11** and **Python 3.10+** from
-[python.org](https://python.org) (tick "Add to PATH" during install).
 </details>
 
-### 2. Add your free AI key
-
-On first launch Seetha opens the **⚙ Settings** window automatically:
-
-1. Go to **[build.nvidia.com](https://build.nvidia.com)** → sign in (free)
-   → open any chat model → click **Get API Key** → copy the `nvapi-...` key.
-2. Paste it into **NVIDIA NIM API Key** in Settings → **Save & Test AI**.
-
-That's it. Click **Activate Seetha** and start talking.
-
-> Keys are stored only at `%LOCALAPPDATA%\Seetha\settings.json` on your PC
-> and are sent only to the provider you got them from.
-
-### 3. Optional keys (more powers)
-
-All optional — add them in the same Settings window whenever you want:
-
-| Key | What it unlocks | Get it free at |
-|---|---|---|
-| Groq | Backup AI brain if NVIDIA is down | [console.groq.com/keys](https://console.groq.com/keys) |
-| Google Gemini | Better Deep Research reports | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
-| SerpAPI | Google-quality research search | [serpapi.com](https://serpapi.com) |
-| NASA | Space data in research | [api.nasa.gov](https://api.nasa.gov) |
-| OpenSky | Live flight tracking in research | [opensky-network.org](https://opensky-network.org) |
-| Trefle | Plant/botany data in research | [trefle.io](https://trefle.io) |
-
----
+Keys are stored **only** at `%LOCALAPPDATA%\Seetha\settings.json` and are sent only to the provider you got them from. There is no Seetha server.
 
 ## 🏗 Architecture
 
-Clean separation between UI, orchestration, cognition, and automation —
-each layer talks only to the next one:
+```mermaid
+flowchart LR
+    subgraph Input
+        E[🎤 Ears<br/>Speech-to-Text]
+        CB[⌨️ Command Bar<br/>Ctrl+Space]
+        CW[💬 Chat Window]
+    end
+
+    subgraph Cognition
+        B[🧠 Brain<br/>Memory → Rules → AI Plans]
+        M[(📚 Memory<br/>facts + reminders)]
+        AI[☁️ AI Client<br/>NVIDIA NIM → Groq]
+    end
+
+    subgraph Execution
+        D[⚡ Dispatcher<br/>plan executor]
+        V{👁 Vision Verify<br/>did it work?}
+        A[🖱 Actions<br/>Windows automation]
+    end
+
+    E --> B
+    CB --> B
+    CW --> B
+    B <--> M
+    B <--> AI
+    B --> D
+    D --> A
+    A --> V
+    V -- retry --> A
+    D --> S[🔊 Mouth TTS + 👩 Avatar]
+```
+
+**Command pipeline — cheapest first, AI last:**
+
+`Memory intents` → `WhatsApp / YouTube / Research addons` → `Rules engine (instant, offline)` → `LLM plan → execute → verify → retry`
 
 | Layer | File | Responsibility |
 |---|---|---|
-| **UI** | [`seetha/main.py`](seetha/main.py) | Tkinter shell: splash, avatar, chat, research dashboard, tray wiring |
-| **Command Bar** | [`seetha/command_bar.py`](seetha/command_bar.py) | Spotlight-style Ctrl+Space overlay |
-| **Tray** | [`seetha/tray.py`](seetha/tray.py) | System-tray icon, notifications, background lifetime |
-| **Settings** | [`seetha/settings_ui.py`](seetha/settings_ui.py), [`seetha/settings_store.py`](seetha/settings_store.py) | API-key management, local JSON store |
-| **Service** | [`seetha/core.py`](seetha/core.py) | Background Listen→Process→Dispatch→Speak loop + reminder scheduler; talks to UI via a thread-safe queue |
-| **Brain** | [`seetha/brain.py`](seetha/brain.py) | Intent detection: memory → addons → rules first (free, instant) → AI plans last |
-| **Memory** | [`seetha/memory.py`](seetha/memory.py) | Persistent facts + reminders (`%LOCALAPPDATA%/Seetha/memory.json`) |
-| **AI Client** | [`seetha/ai_client.py`](seetha/ai_client.py) | `chat_completion()` + `vision_completion()`: NVIDIA NIM → Groq |
-| **Dispatcher** | [`seetha/dispatcher.py`](seetha/dispatcher.py) | Action handlers + agentic plan executor (act → screenshot → verify → retry) |
-| **Actions** | [`seetha/actions.py`](seetha/actions.py) | Windows automation: PyAutoGUI, pywinauto, psutil |
-| **Ears / Mouth** | [`seetha/ears.py`](seetha/ears.py), [`seetha/mouth.py`](seetha/mouth.py) | Speech-to-text (Google STT) / thread-safe text-to-speech worker |
-| **Avatar** | [`seetha/avatar.py`](seetha/avatar.py) | Animated face with blinking + flicker-free lip-sync |
-| **Research** | [`seetha/premium_research.py`](seetha/premium_research.py) | Multi-source evidence collection, fact verification, confidence scoring |
+| UI Shell | [`seetha/main.py`](seetha/main.py) | Tkinter app, splash, avatar, chat, research board, tray wiring |
+| Command Bar | [`seetha/command_bar.py`](seetha/command_bar.py) | Global Spotlight-style overlay |
+| Tray | [`seetha/tray.py`](seetha/tray.py) | Background lifetime, notifications |
+| Settings | [`seetha/settings_ui.py`](seetha/settings_ui.py) · [`settings_store.py`](seetha/settings_store.py) | Self-rendering key manager, local JSON store |
+| Orchestration | [`seetha/core.py`](seetha/core.py) | Listen→Process→Dispatch→Speak loop, reminder scheduler, thread-safe UI queue |
+| Cognition | [`seetha/brain.py`](seetha/brain.py) | Intent routing, agentic plan generation |
+| Memory | [`seetha/memory.py`](seetha/memory.py) | Persistent facts + NL reminder parsing |
+| AI Client | [`seetha/ai_client.py`](seetha/ai_client.py) | Unified `chat_completion()` + `vision_completion()` with provider fallback |
+| Execution | [`seetha/dispatcher.py`](seetha/dispatcher.py) | 31 action handlers + verify-retry plan executor |
+| Automation | [`seetha/actions.py`](seetha/actions.py) | PyAutoGUI / pywinauto / psutil with safety guards |
+| Speech | [`seetha/ears.py`](seetha/ears.py) · [`seetha/mouth.py`](seetha/mouth.py) | Mic auto-selection + thread-safe TTS worker |
+| Research | [`seetha/premium_research.py`](seetha/premium_research.py) | 10-step multi-source research: classify → collect → verify → synthesize → score |
 
-### Command processing order (cheap → expensive)
+### Engineering decisions worth reading
 
-1. **YouTube intent** — "play/watch/listen" phrasing
-2. **Research intent** — "research/investigate/deep dive" (typo-tolerant)
-3. **WhatsApp intent** — AI extraction with a keyless regex fallback
-4. **Rules engine** — instant local matches (volume, open, close, media...)
-5. **General AI** — full conversation with your NVIDIA NIM key; the model
-   can also return `{"action": ...}` JSON to trigger any automation
+- **Rules before AI** — deterministic phrasing matchers handle the 80% of commands that don't need a model. Faster, free, and works offline.
+- **Verify, don't hope** — GUI automation fails silently; Seetha screenshots after critical steps and asks a vision model *"did that work?"* before claiming success.
+- **Thread-safe TTS worker** — Windows SAPI breaks silently across threads; one dedicated speech thread owns the engine, every caller queues to it.
+- **Self-rendering Settings** — every API key is declared once in `KEY_SPECS`; the UI, placeholders, help-links, and storage all derive from it. Adding an integration is a 10-line diff.
+- **Safety guards** — process kills match executable names only (never command lines), protected-process safelist, voice confirmation for destructive actions.
 
-Seetha degrades gracefully: with **no key at all** the rules engine, app
-control, media control and YouTube heuristics still work — only the free-form
-conversation asks you to add a key.
+## 🔑 API Keys
 
----
+Only one key is needed to unlock everything conversational — the rest are optional enrichments:
 
-## 🔒 Privacy
-
-- **No accounts, no backend, no analytics.** The code you read is everything.
-- API keys live in `%LOCALAPPDATA%\Seetha\settings.json` — on your disk only.
-- Voice goes to Google's speech-recognition API (via the `SpeechRecognition`
-  library); AI prompts go directly to the provider whose key **you** added.
-  Nothing is routed through any Seetha server, because there isn't one.
-
----
-
-## 🧰 Troubleshooting
-
-| Problem | Fix |
-|---|---|
-| `PyAudio` fails to install | `pip install pipwin && pipwin install pyaudio` |
-| Mic not detected | Check Windows Privacy Settings → Microphone access |
-| "No AI key configured" | Settings → paste NVIDIA key → Save & Test AI |
-| Voice replies but no actions | Run from a normal (non-admin) terminal — GUI automation can't reach elevated windows |
-| WhatsApp automation misses | Keep WhatsApp Desktop installed and logged in |
-
-Logs live at `%LOCALAPPDATA%\Seetha\logs\seetha.log` — attach the tail of
-that file when opening an issue.
-
----
+| Key | Unlocks | Free at | Required |
+|---|---|---|---|
+| **NVIDIA NIM** | The brain — chat, planning, vision verify | [build.nvidia.com](https://build.nvidia.com) | ✅ recommended |
+| Groq | Fallback brain if NVIDIA is down | [console.groq.com](https://console.groq.com/keys) | optional |
+| Google Gemini | Richer Deep Research synthesis | [aistudio.google.com](https://aistudio.google.com/apikey) | optional |
+| SerpAPI | Google-quality research search | [serpapi.com](https://serpapi.com) | optional |
+| NASA · OpenSky · Trefle | Space / flight / botany research data | [api.nasa.gov](https://api.nasa.gov) · [opensky-network.org](https://opensky-network.org) · [trefle.io](https://trefle.io) | optional |
 
 ## 🧪 Testing
-
-The offline release suite (no keys, no network, no GUI needed) runs in seconds:
 
 ```bash
 python -m tests.test_suite
 ```
 
-28 tests cover module imports, the rules engine's natural-language matching,
-memory/reminder parsing and firing, keyless degradation, and — importantly —
-that **every action the AI is allowed to emit has a dispatcher handler**.
-Run it before every PR.
+28 offline tests (~10 s, no keys, no network, no GUI): module imports, natural-language rule matching, memory/reminder parsing and firing, keyless degradation, and a guarantee that **every action the LLM is allowed to emit has a registered handler**.
+
+## 🗺 Roadmap
+
+- [ ] 🎙 Wake word — *"Hey Seetha"* (openWakeWord)
+- [ ] 👁 Screen Q&A — *"What's on my screen?"* via NIM vision
+- [ ] 🏠 Fully-local mode — Ollama provider, zero cloud
+- [ ] 🗣 Neural TTS — Edge-TTS voices, interruptible speech
+- [ ] 🧩 Skills plugin system — drop a Python file in `skills/`, community-extensible
+- [ ] 🌏 Telugu voice mode — full `te-IN` STT/TTS
+- [ ] 🐧 Linux/macOS actions backend
+
+Want one of these to exist sooner? [Open an issue](https://github.com/adharshramu12/Seetha_ai/issues) or grab it yourself ⬇
 
 ## 🤝 Contributing
 
-PRs welcome! Good first issues:
+Contributions are very welcome — this project is built to be extended:
 
-- Load WhatsApp contacts from a user-editable `contacts.json`
-- More rules in [`seetha/rules.py`](seetha/rules.py) (free = fast for everyone)
-- Additional AI providers in [`seetha/ai_client.py`](seetha/ai_client.py) (Ollama for fully-local!)
-- Linux/macOS support for [`seetha/actions.py`](seetha/actions.py)
+1. Fork → branch → change → `python -m tests.test_suite` → PR.
+2. Keep the layering: UI never touches automation directly; everything flows through **Service → Brain → Dispatcher**.
+3. Good first issues: new rules in [`rules.py`](seetha/rules.py) (free speed for everyone), an Ollama provider in [`ai_client.py`](seetha/ai_client.py), WhatsApp contacts from a user-editable `contacts.json`.
 
-Keep the layering: UI never touches automation directly; everything flows
-through the Service → Brain → Dispatcher pipeline.
+## 🧰 Troubleshooting
 
-## 👨‍💻 Author
+| Problem | Fix |
+|---|---|
+| `PyAudio` install fails | `pip install pipwin && pipwin install pyaudio` |
+| Mic not detected | Windows Settings → Privacy → Microphone access |
+| "No AI key configured" | Settings → paste NVIDIA key → **Save & Test AI** |
+| Actions don't reach a window | Run from a normal (non-admin) terminal |
+| Logs | `%LOCALAPPDATA%\Seetha\logs\seetha.log` |
 
-**Seetha AI** was created and is maintained by **Adharsh Kumar Bachu**.
+## 👨‍💻 About the Author
 
-If Seetha helps you, a ⭐ on this repo means a lot!
+<table>
+<tr>
+<td>
+
+**Adharsh Kumar Bachu** — AI Engineer
+
+I designed and built Seetha end-to-end: the agentic planning loop, vision-verified execution, persistent memory system, multi-provider AI client, Windows automation layer, and the release-gated test suite.
+
+I'm passionate about building **production-grade agentic AI systems** — assistants that don't just talk, but act, verify, and recover.
+
+📫 **Open to AI engineering opportunities and collaborations.**
+
+[![GitHub](https://img.shields.io/badge/GitHub-adharshramu12-181717?logo=github)](https://github.com/adharshramu12)
+[![Email](https://img.shields.io/badge/Email-adharshklu1234%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:adharshklu1234@gmail.com)
+
+</td>
+</tr>
+</table>
 
 ## 📄 License
 
-[MIT](LICENSE) © Adharsh Kumar Bachu — do anything, just keep the notice.
+[MIT](LICENSE) © 2026 Adharsh Kumar Bachu — use it, fork it, ship it. Just keep the notice.
+
+---
+
+<div align="center">
+
+**If Seetha impressed you, a ⭐ helps more people find her — and tells me to keep building.**
+
+*Built with ❤️ in India.*
+
+</div>
