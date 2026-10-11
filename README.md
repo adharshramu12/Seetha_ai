@@ -162,15 +162,15 @@ python -m tests.test_suite
 
 ## 🗺 Roadmap
 
-- [ ] 🎙 Wake word — *"Hey Seetha"* (openWakeWord)
-- [ ] 👁 Screen Q&A — *"What's on my screen?"* via NIM vision
-- [ ] 🏠 Fully-local mode — Ollama provider, zero cloud
-- [ ] 🗣 Neural TTS — Edge-TTS voices, interruptible speech
-- [ ] 🧩 Skills plugin system — drop a Python file in `skills/`, community-extensible
-- [ ] 🌏 Telugu voice mode — full `te-IN` STT/TTS
+- [ ] 🎙 Wake word — *"Hey Seetha"* (openWakeWord) · [#3](https://github.com/adharshramu12/Seetha_ai/issues/3)
+- [ ] 👁 Screen Q&A — *"What's on my screen?"* via NIM vision · [#4](https://github.com/adharshramu12/Seetha_ai/issues/4)
+- [ ] 🏠 Fully-local mode — Ollama provider, zero cloud · [#1](https://github.com/adharshramu12/Seetha_ai/issues/1) `good first issue`
+- [ ] 🗣 Neural TTS — Edge-TTS voices, interruptible speech · [#5](https://github.com/adharshramu12/Seetha_ai/issues/5)
+- [ ] 🧩 Skills plugin system — drop a Python file in `skills/`, community-extensible · [#7](https://github.com/adharshramu12/Seetha_ai/issues/7)
+- [ ] 🌏 Telugu voice mode — full `te-IN` STT/TTS · [#6](https://github.com/adharshramu12/Seetha_ai/issues/6)
 - [ ] 🐧 Linux/macOS actions backend
 
-Want one of these to exist sooner? [Open an issue](https://github.com/adharshramu12/Seetha_ai/issues) or grab it yourself ⬇
+Want one of these to exist sooner? Comment on its issue, [open a new one](https://github.com/adharshramu12/Seetha_ai/issues/new), or grab one labelled [`good first issue`](https://github.com/adharshramu12/Seetha_ai/labels/good%20first%20issue) ⬇
 
 ## 🤝 Contributing
 
@@ -178,7 +178,7 @@ Contributions are very welcome — this project is built to be extended:
 
 1. Fork → branch → change → `python -m tests.test_suite` → PR.
 2. Keep the layering: UI never touches automation directly; everything flows through **Service → Brain → Dispatcher**.
-3. Good first issues: new rules in [`rules.py`](seetha/rules.py) (free speed for everyone), an Ollama provider in [`ai_client.py`](seetha/ai_client.py), WhatsApp contacts from a user-editable `contacts.json`.
+3. Good first issues: an Ollama provider in [`ai_client.py`](seetha/ai_client.py) ([#1](https://github.com/adharshramu12/Seetha_ai/issues/1)), WhatsApp contacts from a user-editable `contacts.json` ([#2](https://github.com/adharshramu12/Seetha_ai/issues/2)), or new phrasings in [`rules.py`](seetha/rules.py) (free speed for everyone).
 
 ## 🧰 Troubleshooting
 
@@ -205,6 +205,7 @@ I'm passionate about building **production-grade agentic AI systems** — assist
 📫 **Open to AI engineering opportunities and collaborations.**
 
 [![GitHub](https://img.shields.io/badge/GitHub-adharshramu12-181717?logo=github)](https://github.com/adharshramu12)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Adharsh%20Kumar%20Bachu-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adharsh-kumar-bachu/)
 [![Email](https://img.shields.io/badge/Email-adharshklu1234%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:adharshklu1234@gmail.com)
 
 </td>
